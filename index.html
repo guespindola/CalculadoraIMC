@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> IMC </title>
+</head>
+<body>
+    <div class="main">
+        <h1>Calculadora IMC</h1>
+        <label for="peso">Peso (Kg):</label>
+        <input id="peso" name="peso" type="number">
+<br>
+        <label for="altura">Altura:</label>
+        <input id="altura" name="altura" type="number">
+<br>
+        <button onclick="calcularImc()">Calcular</button>
+<br>
+        <p>Seu Índice de Massa Corporal é: <span id="resultado">...</span></p>
+    </div>
+<br>
+    <div class="main2">    
+        <div class="col">
+            <ul class="price-box">
+                <li class="header">IMC</li>
+                <li> <strong> Menor Que 18.5 </strong> Magreza </li>
+                <li> <strong> Entre 18.5 e 24.9 </strong> Normal </li>
+                <li> <strong> Entre 25,0 e 29,9</strong> Sobrepeso </li>
+                <li> <strong> Entre 30,0 e 39,9</strong> Obesidade </li>
+                <li> <strong> Maior Que 40.0</strong> Obesidade Grave </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <small>Design by: Gustavo Espindola &copy; | Contato: <a href="https://instagram.com/gustavoespindola14?igshid=ZmRlMzRkMDU=">@gustavoespindola14</a></small>
+    </footer>
+
+    <script>
+        function calcularImc() {
+            const peso = document.getElementById("peso").value;
+            const altura = document.getElementById("altura").value;
+            const imc = peso / (altura **2);
+            document.getElementById("resultado").textContent = imc.toFixed(2);
+
+        }
+
+        let tituloDinamico = document.title;
+        window.addEventListener("blur",() => {
+            document.title = "Reveja o Calculo"
+        });
+
+        window.addEventListener("focus",()=>{
+            document.title = tituloDinamico
+        });
+    </script>
+
+</body>
+</html>
